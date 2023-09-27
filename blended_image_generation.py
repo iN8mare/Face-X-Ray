@@ -118,15 +118,11 @@ class BIOnlineGeneration:
 
     def gen_one_datapoint(self):
         background_face_path = random.choice(self.data_list)
-        data_type = 'real' if random.randint(0, 1) else 'fake'
+        num = random.randint(0, 1)
         
-        if data_type == 'fake':
-            if 'fake' in background_face_path:   # means the images should have fake or real in their name
-                face_img = io.imread(background_face_path)
-                mask = np.zeros((600, 600, 1))
-            else:
-                face_img, mask = self.get_blended_face(background_face_path)
-                mask = (1 - mask) * mask * 4
+        if not num:
+            face_img, mask = self.get_blended_face(background_face_path)
+            mask = (1 - mask) * mask * 4
         else:
             face_img = io.imread(background_face_path)
             mask = np.zeros((600, 600, 1))
