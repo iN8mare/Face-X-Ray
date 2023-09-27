@@ -3,9 +3,6 @@ import cv2
 import numpy as np
 import shutil
 from tqdm import tqdm
-# used for accessing url to download files
-import urllib.request as urlreq
-import glob, os
 import json
 import pprint
 import time
