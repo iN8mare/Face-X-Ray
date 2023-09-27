@@ -200,17 +200,14 @@ def generate_blends(obj, path_suffix='', valid=False):
         img,mask,label = obj.gen_one_datapoint()
         mask = np.repeat(mask,3,2)
         mask = (mask*255).astype(np.uint8)
-        base_name = datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S.%f')
         # save masks
         mask_img = Image.fromarray(mask, 'RGB')
-        # filename = 'blend_dataset' + extension +'/' + label + '_masks/' + str(base_name) + '.jpg'
         filename = 'blend_dataset' + extension +'/' + label + '_masks' + str(count) + '.jpg'
         mask_img.save(filename)
         mask_paths.append(filename)
 
         # save imgs
         face_img = Image.fromarray(img, 'RGB')
-        # filename = 'blend_dataset' + extension + '/' + label + '_imgs/' + str(base_name) + '.jpg'
         filename = 'blend_dataset' + extension + '/' + label + '_imgs' + str(count) + '.jpg'
         face_img.save(filename)
         img_paths.append(filename)
