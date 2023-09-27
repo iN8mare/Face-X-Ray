@@ -2,10 +2,9 @@ from skimage import io
 from skimage import transform as sktransform
 import numpy as np
 import json
-import os
 from PIL import Image
 from imgaug import augmenters as iaa
-from DeepFakeMask import facehull
+from mask import facehull
 import cv2
 import tqdm
 import pickle
